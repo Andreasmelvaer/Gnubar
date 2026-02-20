@@ -4,9 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import { usePathname } from '@/i18n/navigation';
-import { Link as I18nLink } from '@/i18n/navigation';
-import Link from 'next/link';
+import { usePathname, Link as I18nLink } from '@/i18n/navigation';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,33 +20,8 @@ export default function Header() {
     { href: '/booking', labelKey: 'booking' },
   ];
 
-  // Get the English version of the current path
-  const getLocalizedPath = (targetLocale: string) => {
-    if (targetLocale === 'no') {
-      // For Norwegian, remove the /en prefix if it exists
-      if (pathname.startsWith('/en')) {
-        return pathname.replace('/en', '');
-      }
-      return pathname;
-    } else {
-      // For English, add /en prefix if it doesn't exist
-      if (pathname.startsWith('/en')) {
-        return pathname;
-      }
-      // Map Norwegian paths to English paths
-      const pathMap: Record<string, string> = {
-        '/': '/en/',
-        '/hva-skjer': '/en/whats-on',
-        '/gnu-sounds': '/en/gnu-sounds',
-        '/gnu-raua': '/en/gnu-raua',
-        '/gnu-raua/poesi': '/en/gnu-raua/poetry',
-        '/om': '/en/about',
-        '/booking': '/en/booking',
-      };
-
-      return pathMap[pathname] || '/en/';
-    }
-  };
+  // Current pathname (without locale prefix) for language switching
+  const currentPath = (pathname || '/') as '/';
 
   return (
     <header className="bg-gnu-green text-gnu-cream sticky top-0 z-50 border-b-4 border-gnu-black">
@@ -78,8 +51,9 @@ export default function Header() {
           ))}
           {/* Language toggle */}
           <div className="flex items-center gap-1 ml-4 border-2 border-gnu-cream rounded">
-            <Link
-              href={getLocalizedPath('no')}
+            <I18nLink
+              href={currentPath}
+              locale="no"
               className={`px-2 py-1 text-xs font-bold ${
                 locale === 'no'
                   ? 'bg-gnu-cream text-gnu-green'
@@ -87,9 +61,10 @@ export default function Header() {
               }`}
             >
               NO
-            </Link>
-            <Link
-              href={getLocalizedPath('en')}
+            </I18nLink>
+            <I18nLink
+              href={currentPath}
+              locale="en"
               className={`px-2 py-1 text-xs font-bold ${
                 locale === 'en'
                   ? 'bg-gnu-cream text-gnu-green'
@@ -97,7 +72,7 @@ export default function Header() {
               }`}
             >
               EN
-            </Link>
+            </I18nLink>
           </div>
         </nav>
 
@@ -125,8 +100,9 @@ export default function Header() {
             </I18nLink>
           ))}
           <div className="flex items-center gap-2 mt-4">
-            <Link
-              href={getLocalizedPath('no')}
+            <I18nLink
+              href={currentPath}
+              locale="no"
               className={`px-3 py-1 text-sm font-bold ${
                 locale === 'no'
                   ? 'bg-gnu-cream text-gnu-green'
@@ -135,9 +111,10 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
             >
               NO
-            </Link>
-            <Link
-              href={getLocalizedPath('en')}
+            </I18nLink>
+            <I18nLink
+              href={currentPath}
+              locale="en"
               className={`px-3 py-1 text-sm font-bold ${
                 locale === 'en'
                   ? 'bg-gnu-cream text-gnu-green'
@@ -146,7 +123,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
             >
               EN
-            </Link>
+            </I18nLink>
           </div>
         </nav>
       )}
