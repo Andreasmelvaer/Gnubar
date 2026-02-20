@@ -5,11 +5,11 @@
     "gnuRaua": "Gnu-Rauå",
     "omGnu": "About Gnu",
     "booking": "Booking"
-  },
+  }
   "home": {
     "heroTitle": "Gnu\nBar",
     "heroSubtitle": "A bar and concert venue in the heart of Stavanger.\nNedre Strandgate 23, by the waterfront.",
-    "heroCtaPrimary": "What's On →",
+    "heroCtaPrimary": "What's On →"
     "heroCtaSecondary": "Book Gnu",
     "address": "Nedre Strandgate 23",
     "weeklyEventsHeading": "Weekly Events at Gnu",
@@ -65,7 +65,8 @@
   },
   "gnuSounds": {
     "pageTitle": "Gnu Sounds",
-    "description": "Video recordings from Gnu's finest musical moments. Concerts, jam sessions, and unforgettable evenings."
+    "description": "Video recordings from Gnu's finest musical moments. Concerts, jam sessions, and unforgettable evenings.",
+        "youtubeLink": "Watch all videos on YouTube →"
   },
   "gnuRaua": {
     "pageTitle": "Gnu-Rauå",
