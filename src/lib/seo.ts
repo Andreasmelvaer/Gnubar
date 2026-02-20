@@ -104,6 +104,7 @@ export function generateVideoObjectSchema(video: {
   uploadDate: string;
   duration?: string;
   contentUrl?: string;
+  embedUrl?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -114,6 +115,7 @@ export function generateVideoObjectSchema(video: {
     uploadDate: video.uploadDate,
     ...(video.duration && { duration: video.duration }),
     ...(video.contentUrl && { contentUrl: video.contentUrl }),
+    ...(video.embedUrl && { embedUrl: video.embedUrl }),
   };
 }
 
