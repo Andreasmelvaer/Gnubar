@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Sue Ellen Francisco';
+  src: url('/fonts/SueEllenFrancisco-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Gnu Bar Colors — from Figma poster designs */
+  --gnu-green: #3C4932;
+  --gnu-olive: #3D691B;
+  --gnu-cream: #F9F7E8;
+  --gnu-red: #E2452D;
+  --gnu-red-light: #EE482E;
+  --gnu-gold: #E2CE37;
+  --gnu-black: #000000;
+  --gnu-white: #FFFFFF;
+
+  --background: var(--gnu-cream);
+  --foreground: var(--gnu-black);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gnu-green: #3C4932;
+  --color-gnu-olive: #3D691B;
+  --color-gnu-cream: #F9F7E8;
+  --color-gnu-red: #E2452D;
+  --color-gnu-red-light: #EE482E;
+  --color-gnu-gold: #E2CE37;
+  --color-gnu-black: #000000;
+  --color-gnu-white: #FFFFFF;
+
+  --font-display: 'Epilogue', sans-serif;
+  --font-body: 'Sudo Var', 'JetBrains Mono', monospace;
+  --font-accent: 'Sue Ellen Francisco', cursive;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), monospace;
+}
+
+/* Brutalist card style */
+.gnu-card {
+  border: 3px solid var(--gnu-black);
+  box-shadow: 6px 6px 0px var(--gnu-black);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.gnu-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--gnu-black);
+}
+
+/* Tilted image effect */
+.gnu-tilt {
+  transform: rotate(-2deg);
+}
+
+.gnu-tilt-right {
+  transform: rotate(2deg);
+}
+
+/* Epilogue headline styling */
+.gnu-headline {
+  font-family: var(--font-display), 'Epilogue', sans-serif;
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+/* Decorative asterisk styling */
+.gnu-stars {
+  font-family: 'Sue Ellen Francisco', cursive;
+  color: var(--gnu-gold);
+}
+
+/* Section divider */
+.gnu-divider {
+  height: 4px;
+  background: var(--gnu-black);
+}
+
+/* Event type badges */
+.gnu-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  border: 2px solid currentColor;
+}
+
+/* Selection color */
+::selection {
+  background: var(--gnu-gold);
+  color: var(--gnu-black);
+}
