@@ -1,7 +1,32 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
+import { useTranslations } from 'next-intl';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema, generateVideoObjectSchema, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Gnu Sounds',
+  description: 'Gnu Sounds - Video og opptak fra konserter og events på Gnu Bar i Stavanger. Se live musikk og dj-sett fra vår scene.',
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/gnu-sounds`,
+    title: "Gnu Sounds | Gnu Bar Stavanger",
+    description: 'Video og opptak fra konserter og events på Gnu Bar i Stavanger.',
+    images: [
+      {
+        url: "https://gnubar.no/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Gnu Bar Stavanger",
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${SITE_URL}/gnu-sounds`,
+    languages: {
+      "no-NO": `${SITE_URL}/gnu-sounds`,
+      "en": `${SITE_URL}/en/gnu-sounds`,
+    },
+  },
 };
 
 interface VideoEntry {
@@ -40,13 +65,46 @@ const videoEntries: VideoEntry[] = [
 ];
 
 export default function GnuSounds() {
+  const t = useTranslations('gnuSounds');
+
+  const breadcrumbs = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Gnu Sounds', url: `${SITE_URL}/gnu-sounds` },
+  ];
+
+  const videoSchemas = videoEntries.map(entry =>
+    generateVideoObjectSchema({
+      name: entry.artist,
+      description: entry.description,
+      thumbnailUrl: 'https://gnubar.no/images/og-image.png',
+      uploadDate: new Date(entry.date).toISOString(),
+    })
+  );
+
+  const structuredData = [
+    generateLocalBusinessSchema(),
+    generateBreadcrumbSchema(breadcrumbs),
+    ...videoSchemas,
+  ];
+
   return (
     <main className="min-h-screen bg-gnu-cream">
+      <Script
+        id="gnu-sounds-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': structuredData,
+          }),
+        }}
+      />
+
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <h1 className="gnu-headline text-gnu-black mb-12">Gnu Sounds</h1>
+        <h1 className="gnu-headline text-gnu-black mb-12">{t('pageTitle')}</h1>
 
         <p className="text-gnu-black text-lg mb-12 max-w-2xl">
-          Videoopptak fra Gnu sine beste musikalske stunder. Konserter, jam-sesjoner, og uforglemmelige kveldinger.
+          {t('description')}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

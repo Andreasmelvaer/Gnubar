@@ -1,7 +1,32 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
+import { useTranslations } from 'next-intl';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Hva Skjer',
+  description: 'Se hva som skjer på Gnu Bar - quiz, live musikk, DJ, Music Bingo og mer hver uke i Stavanger.',
+  openGraph: {
+    type: "website",
+    url: `${SITE_URL}/hva-skjer`,
+    title: "Hva Skjer | Gnu Bar Stavanger",
+    description: 'Se hva som skjer på Gnu Bar - quiz, live musikk, DJ, Music Bingo og mer hver uke i Stavanger.',
+    images: [
+      {
+        url: "https://gnubar.no/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Gnu Bar Stavanger",
+      },
+    ],
+  },
+  alternates: {
+    canonical: `${SITE_URL}/hva-skjer`,
+    languages: {
+      "no-NO": `${SITE_URL}/hva-skjer`,
+      "en": `${SITE_URL}/en/whats-on`,
+    },
+  },
 };
 
 interface Event {
@@ -113,15 +138,38 @@ const getBadgeColor = (type: string): string => {
 };
 
 export default function HvaSkjer() {
+  const t = useTranslations('hvaSkjer');
+
+  const breadcrumbs = [
+    { name: 'Home', url: SITE_URL },
+    { name: 'Hva Skjer', url: `${SITE_URL}/hva-skjer` },
+  ];
+
+  const structuredData = [
+    generateLocalBusinessSchema(),
+    generateBreadcrumbSchema(breadcrumbs),
+  ];
+
   return (
     <main className="min-h-screen bg-gnu-cream">
+      <Script
+        id="hva-skjer-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': structuredData,
+          }),
+        }}
+      />
+
       <div className="max-w-4xl mx-auto px-4 py-12">
-        <h1 className="gnu-headline text-gnu-black mb-12">Hva Skjer</h1>
+        <h1 className="gnu-headline text-gnu-black mb-12">{t('pageTitle')}</h1>
 
         {/* Faste innslag section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gnu-black mb-8 border-b-4 border-gnu-green pb-4">
-            Faste Innslag
+            {t('recurringEventsHeading')}
           </h2>
           <div className="space-y-4">
             {recurringEvents.map((event) => (
@@ -150,7 +198,7 @@ export default function HvaSkjer() {
         {/* Kommende arrangementer */}
         <section>
           <h2 className="text-3xl font-bold text-gnu-black mb-8 border-b-4 border-gnu-red pb-4">
-            Kommende Arrangementer
+            {t('upcomingEventsHeading')}
           </h2>
           <div className="space-y-4">
             {upcomingEvents.map((event) => (

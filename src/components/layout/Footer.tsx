@@ -1,7 +1,11 @@
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
+import { Link as I18nLink } from '@/i18n/navigation';
 
 export default function Footer() {
+  const t = useTranslations();
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-gnu-black text-gnu-cream">
       {/* Opening hours banner */}
@@ -9,10 +13,10 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-sm font-bold uppercase tracking-wide">
           <span className="flex items-center gap-2">
             <Clock size={16} />
-            Man/Tir/Ons/Tor/Søn: 16:00–00:00
+            {t('common.mondayToSunday')}: 16:00–00:00
           </span>
           <span className="hidden sm:inline">•</span>
-          <span>Fre/Lør: 15:00–02:00</span>
+          <span>{t('common.fridayToSaturday')}: 15:00–02:00</span>
         </div>
       </div>
 
@@ -21,25 +25,39 @@ export default function Footer() {
         <div>
           <h2 className="gnu-headline text-5xl text-gnu-gold mb-4">Gnu Bar</h2>
           <p className="text-gnu-cream/70 leading-relaxed">
-            Stavangers mest unødvendige bar — siden 2016.
+            {t('footer.tagline')}
           </p>
         </div>
 
         {/* Column 2: Links */}
         <div>
-          <h3 className="font-bold uppercase text-sm tracking-wide text-gnu-gold mb-4">Sider</h3>
+          <h3 className="font-bold uppercase text-sm tracking-wide text-gnu-gold mb-4">
+            {t('footer.sectionLinks')}
+          </h3>
           <nav className="flex flex-col gap-2">
-            <Link href="/hva-skjer" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">Hva skjer</Link>
-            <Link href="/gnu-sounds" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">Gnu Sounds</Link>
-            <Link href="/gnu-raua" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">Gnu-Rauå</Link>
-            <Link href="/om" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">Om Gnu</Link>
-            <Link href="/booking" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">Booking & Kontakt</Link>
+            <I18nLink href="/hva-skjer" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
+              {t('nav.hvaSkjer')}
+            </I18nLink>
+            <I18nLink href="/gnu-sounds" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
+              {t('nav.gnuSounds')}
+            </I18nLink>
+            <I18nLink href="/gnu-raua" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
+              {t('nav.gnuRaua')}
+            </I18nLink>
+            <I18nLink href="/om" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
+              {t('nav.omGnu')}
+            </I18nLink>
+            <I18nLink href="/booking" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
+              {t('nav.booking')}
+            </I18nLink>
           </nav>
         </div>
 
         {/* Column 3: Contact */}
         <div>
-          <h3 className="font-bold uppercase text-sm tracking-wide text-gnu-gold mb-4">Kontakt</h3>
+          <h3 className="font-bold uppercase text-sm tracking-wide text-gnu-gold mb-4">
+            {t('footer.sectionContact')}
+          </h3>
           <div className="flex flex-col gap-3 text-gnu-cream/70">
             <a
               href="https://maps.google.com/?q=Nedre+Strandgate+23+Stavanger"
@@ -70,7 +88,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-gnu-cream/10 py-4">
         <div className="max-w-7xl mx-auto px-4 text-center text-gnu-cream/40 text-xs">
-          © {new Date().getFullYear()} Gnu Bar, Stavanger. Alle rettigheter reservert.
+          {t('footer.copyright', { year })}
         </div>
       </div>
     </footer>

@@ -1,26 +1,60 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-
-const navLinks = [
-  { href: '/hva-skjer', label: 'Hva skjer' },
-  { href: '/gnu-sounds', label: 'Gnu Sounds' },
-  { href: '/gnu-raua', label: 'Gnu-Rauå' },
-  { href: '/om', label: 'Om Gnu' },
-  { href: '/booking', label: 'Booking' },
-];
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname } from '@/i18n/navigation';
+import { Link as I18nLink } from '@/i18n/navigation';
+import Link from 'next/link';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const locale = useLocale();
+  const pathname = usePathname();
+  const t = useTranslations('nav');
+
+  const navLinks: Array<{ href: '/' | '/hva-skjer' | '/gnu-sounds' | '/gnu-raua' | '/om' | '/booking', labelKey: string }> = [
+    { href: '/hva-skjer', labelKey: 'hvaSkjer' },
+    { href: '/gnu-sounds', labelKey: 'gnuSounds' },
+    { href: '/gnu-raua', labelKey: 'gnuRaua' },
+    { href: '/om', labelKey: 'omGnu' },
+    { href: '/booking', labelKey: 'booking' },
+  ];
+
+  // Get the English version of the current path
+  const getLocalizedPath = (targetLocale: string) => {
+    if (targetLocale === 'no') {
+      // For Norwegian, remove the /en prefix if it exists
+      if (pathname.startsWith('/en')) {
+        return pathname.replace('/en', '');
+      }
+      return pathname;
+    } else {
+      // For English, add /en prefix if it doesn't exist
+      if (pathname.startsWith('/en')) {
+        return pathname;
+      }
+      // Map Norwegian paths to English paths
+      const pathMap: Record<string, string> = {
+        '/': '/en/',
+        '/hva-skjer': '/en/whats-on',
+        '/gnu-sounds': '/en/gnu-sounds',
+        '/gnu-raua': '/en/gnu-raua',
+        '/gnu-raua/poesi': '/en/gnu-raua/poetry',
+        '/om': '/en/about',
+        '/booking': '/en/booking',
+      };
+
+      return pathMap[pathname] || '/en/';
+    }
+  };
 
   return (
     <header className="bg-gnu-green text-gnu-cream sticky top-0 z-50 border-b-4 border-gnu-black">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="hover:opacity-80 transition-opacity">
+        <I18nLink href="/" className="hover:opacity-80 transition-opacity">
           <Image
             src="/images/logo.png"
             alt="Gnu Bar"
@@ -29,23 +63,41 @@ export default function Header() {
             className="h-10 md:h-12 w-auto"
             priority
           />
-        </Link>
+        </I18nLink>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <Link
+            <I18nLink
               key={link.href}
               href={link.href}
               className="text-gnu-cream hover:text-gnu-gold transition-colors font-bold uppercase text-sm tracking-wide"
             >
-              {link.label}
-            </Link>
+              {t(link.labelKey as any)}
+            </I18nLink>
           ))}
           {/* Language toggle */}
           <div className="flex items-center gap-1 ml-4 border-2 border-gnu-cream rounded">
-            <button className="px-2 py-1 text-xs font-bold bg-gnu-cream text-gnu-green">NO</button>
-            <button className="px-2 py-1 text-xs font-bold text-gnu-cream hover:text-gnu-gold transition-colors">EN</button>
+            <Link
+              href={getLocalizedPath('no')}
+              className={`px-2 py-1 text-xs font-bold ${
+                locale === 'no'
+                  ? 'bg-gnu-cream text-gnu-green'
+                  : 'text-gnu-cream hover:text-gnu-gold transition-colors'
+              }`}
+            >
+              NO
+            </Link>
+            <Link
+              href={getLocalizedPath('en')}
+              className={`px-2 py-1 text-xs font-bold ${
+                locale === 'en'
+                  ? 'bg-gnu-cream text-gnu-green'
+                  : 'text-gnu-cream hover:text-gnu-gold transition-colors'
+              }`}
+            >
+              EN
+            </Link>
           </div>
         </nav>
 
@@ -63,18 +115,38 @@ export default function Header() {
       {menuOpen && (
         <nav className="md:hidden bg-gnu-green border-t-2 border-gnu-olive px-4 pb-4">
           {navLinks.map((link) => (
-            <Link
+            <I18nLink
               key={link.href}
               href={link.href}
               className="block py-3 text-gnu-cream hover:text-gnu-gold font-bold uppercase text-lg border-b border-gnu-olive"
               onClick={() => setMenuOpen(false)}
             >
-              {link.label}
-            </Link>
+              {t(link.labelKey as any)}
+            </I18nLink>
           ))}
           <div className="flex items-center gap-2 mt-4">
-            <button className="px-3 py-1 text-sm font-bold bg-gnu-cream text-gnu-green">NO</button>
-            <button className="px-3 py-1 text-sm font-bold text-gnu-cream border border-gnu-cream">EN</button>
+            <Link
+              href={getLocalizedPath('no')}
+              className={`px-3 py-1 text-sm font-bold ${
+                locale === 'no'
+                  ? 'bg-gnu-cream text-gnu-green'
+                  : 'text-gnu-cream border border-gnu-cream'
+              }`}
+              onClick={() => setMenuOpen(false)}
+            >
+              NO
+            </Link>
+            <Link
+              href={getLocalizedPath('en')}
+              className={`px-3 py-1 text-sm font-bold ${
+                locale === 'en'
+                  ? 'bg-gnu-cream text-gnu-green'
+                  : 'text-gnu-cream border border-gnu-cream'
+              }`}
+              onClick={() => setMenuOpen(false)}
+            >
+              EN
+            </Link>
           </div>
         </nav>
       )}

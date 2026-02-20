@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "hvaSkjer": "What's On",
+    "gnuSounds": "Gnu Sounds",
+    "gnuRaua": "Gnu-Rauå",
+    "omGnu": "About Gnu",
+    "booking": "Booking"
+  },
+  "home": {
+    "heroTitle": "Gnu\nBar",
+    "heroSubtitle": "A bar and concert venue in the heart of Stavanger.\nNedre Strandgate 23, by the waterfront.",
+    "heroCtaPrimary": "What's On →",
+    "heroCtaSecondary": "Book Gnu",
+    "address": "Nedre Strandgate 23",
+    "weeklyEventsHeading": "Weekly Events at Gnu",
+    "seeFullProgram": "See Full Program →",
+    "gnuSoundsCard": {
+      "title": "Gnu Sounds",
+      "description": "Full-length recordings of concerts and gigs at Gnu. Watch and listen to live music from our stage.",
+      "link": "Watch Videos →"
+    },
+    "gnuRauaCard": {
+      "title": "Gnu-Rauå",
+      "description": "The story of Stavanger's most unnecessary monument — and why it matters.",
+      "link": "Read the Story →"
+    },
+    "bookingCard": {
+      "title": "Booking",
+      "description": "Book Gnu for private events, corporate parties, birthdays, or other occasions.",
+      "link": "Get in Touch →"
+    },
+    "findUs": "Find Us",
+    "openInMaps": "Open in Google Maps →",
+    "eventWeekly": [
+      {
+        "date": "Thursday",
+        "title": "Quiz",
+        "time": "at 8:00 PM",
+        "desc": "ALMOST every Thursday!"
+      },
+      {
+        "date": "Friday",
+        "title": "GNU Sausage",
+        "time": "from 3:00 PM",
+        "desc": "Sausage Friday at Gnu"
+      },
+      {
+        "date": "Saturday",
+        "title": "DJ Night",
+        "time": "at 10:00 PM",
+        "desc": "DJ in the bar"
+      },
+      {
+        "date": "Sunday",
+        "title": "Sunday School",
+        "time": "from 4:00 PM",
+        "desc": "Looking for new members"
+      }
+    ]
+  },
+  "hvaSkjer": {
+    "pageTitle": "What's On",
+    "recurringEventsHeading": "Regular Events",
+    "upcomingEventsHeading": "Upcoming Events"
+  },
+  "gnuSounds": {
+    "pageTitle": "Gnu Sounds",
+    "description": "Video recordings from Gnu's finest musical moments. Concerts, jam sessions, and unforgettable evenings."
+  },
+  "gnuRaua": {
+    "pageTitle": "Gnu-Rauå",
+    "subtitle": "Stavanger's most unnecessary monument — and why it matters",
+    "content1": "Gnu-Rauå is more than just a monument made of foam and fur. It is a symbol of the unexpected, the absurd, and what makes Stavanger such a special city. Here at Gnu, we can sit and share stories about a gnu that never lived, but who lives on in our hearts.",
+    "content2": "The full story is coming soon. For now, we know that Gnu-Rauå is writing its own legend, one chapter at a time, one toast at a time, and a kind of jealous love for this city and this flock.",
+    "content3": "Welcome to the monument that no one saw coming, but everyone needs.",
+    "linkToPoetry": "Read Rauspikka Poetry →"
+  },
+  "poesi": {
+    "pageTitle": "Rauspikka Poetry",
+    "subtitle": "Three poems about Gnu-Rauå",
+    "backLink": "Back to Gnu-Rauå →"
+  },
+  "om": {
+    "pageTitle": "About Gnu",
+    "mainDescription": "Gnu is a rock'n'roll bar located by the waterfront with fantastic views over the harbor. We are known for our famous sausages, fun quizzes, and live music that gets people dancing even when they just want to drink beer.",
+    "secondaryDescription": "At Gnu, you can sit and look out over the waterfront, at all the other herd animals.",
+    "offerHeading": "What We Offer",
+    "musicBar": {
+      "title": "Music Bar",
+      "description": "Live concerts, jazz jam sessions, DJ nights, and vinyl listening parties. Music is the lifeblood of Gnu."
+    },
+    "quiz": {
+      "title": "Quiz & Entertainment",
+      "description": "The Thursday quiz is famous. Bingo, music trivia, and other fun activities year-round."
+    },
+    "food": {
+      "title": "Food & Drink",
+      "description": "Famous sausages, a good selection of beer and spirits, and everything you need to keep the energy up."
+    },
+    "view": {
+      "title": "Views & Atmosphere",
+      "description": "Harbor views from Stavanger. Cozy brutalist interior and a herd mentality that warms the heart."
+    },
+    "hoursHeading": "Opening Hours"
+  },
+  "booking": {
+    "pageTitle": "Booking & Contact",
+    "bookingInfoTitle": "Want to Book Gnu?",
+    "bookingInfoText1": "Gnu is available for private events, corporate parties, concerts, and other arrangements. We have experience with everything from small meetings to larger festivals.",
+    "bookingInfoText2": "Contact us with details about your event, and we can discuss options and pricing.",
+    "contactHeading": "Contact Information",
+    "barManager": "Bar Manager",
+    "barManagerSubtitle": "Bar Manager & Booking Contact",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Opening Hours",
+    "formTitle": "Booking Request",
+    "formName": "Name",
+    "formEmail": "Email",
+    "formDate": "Preferred Date",
+    "formEventType": "Type of Event",
+    "formMessage": "Message",
+    "formPlaceholder": "Tell us about your event...",
+    "formSelectPlaceholder": "-- Select Type --",
+    "formSubmit": "Send Request",
+    "eventTypeOptions": {
+      "concert": "Concert",
+      "dj": "DJ Night",
+      "private": "Private Event",
+      "corporate": "Corporate Party",
+      "wedding": "Wedding",
+      "other": "Other"
+    }
+  },
+  "footer": {
+    "tagline": "Stavanger's most unnecessary bar — since 2016.",
+    "sectionLinks": "Pages",
+    "sectionContact": "Contact",
+    "copyright": "© {year} Gnu Bar, Stavanger. All rights reserved."
+  },
+  "common": {
+    "readMore": "Read More →",
+    "seeAll": "See All →",
+    "back": "Back →",
+    "submit": "Submit",
+    "openingHours": "Opening Hours",
+    "mondayToSunday": "Mon/Tue/Wed/Thu/Sun",
+    "fridayToSaturday": "Fri/Sat",
+    "address": "Nedre Strandgate 23, 4005 Stavanger",
+    "phone": "51 56 73 00",
+    "instagram": "@gnu.bar"
+  }
+}

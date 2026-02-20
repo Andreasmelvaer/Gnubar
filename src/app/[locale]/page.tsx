@@ -1,47 +1,86 @@
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
+import Script from 'next/script';
 import { MapPin, Clock, Music, Calendar, BookOpen } from 'lucide-react';
+import { Link as I18nLink } from '@/i18n/navigation';
+import { generateHomePageSchema, SITE_URL } from '@/lib/seo';
 
-const weeklyEvents = [
-  { date: 'Torsdag', title: 'Quiz', time: 'kl. 20:00', type: 'quiz', desc: 'NESTEN hver torsdag!' },
-  { date: 'Fredag', title: 'GNU-Pølse', time: 'fra kl. 15:00', type: 'polse', desc: 'Pølsefredag på Gnu' },
-  { date: 'Lørdag', title: 'DJ-Lørdag', time: 'kl. 22:00', type: 'dj', desc: 'DJ i baren' },
-  { date: 'Søndag', title: 'Søndagsskolen', time: 'fra kl. 16:00', type: 'sundayschool', desc: 'Søker nye medlemmer' },
-];
-
-const eventTypeColors: Record<string, string> = {
-  quiz: 'bg-gnu-gold text-gnu-black',
-  polse: 'bg-gnu-red text-gnu-cream',
-  dj: 'bg-gnu-green text-gnu-cream',
-  sundayschool: 'bg-gnu-olive text-gnu-cream',
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Gnu Bar — bar og konsertsted i hjertet av Stavanger. Quiz, live musikk, DJ, Music Bingo og mer. Nedre Strandgate 23.",
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    title: "Gnu Bar — Stavanger",
+    description:
+      "Bar og konsertsted i hjertet av Stavanger. Quiz, live musikk, DJ og mer.",
+    images: [
+      {
+        url: "https://gnubar.no/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Gnu Bar Stavanger",
+      },
+    ],
+  },
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      "no-NO": SITE_URL,
+      "en": `${SITE_URL}/en`,
+    },
+  },
 };
 
-export default function HomePage() {
+export default async function HomePage(
+  { params }: { params: Promise<{ locale: string }> }
+) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
+  const weeklyEvents = t.raw('home.eventWeekly');
+  const structuredData = generateHomePageSchema();
+
+  const eventTypeColors: Record<string, string> = {
+    quiz: 'bg-gnu-gold text-gnu-black',
+    polse: 'bg-gnu-red text-gnu-cream',
+    dj: 'bg-gnu-green text-gnu-cream',
+    sundayschool: 'bg-gnu-olive text-gnu-cream',
+  };
+
   return (
     <>
+      <Script
+        id="homepage-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+
       {/* Hero */}
       <section className="bg-gnu-green text-gnu-cream relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 py-20 md:py-32 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="gnu-headline text-7xl sm:text-8xl md:text-[10rem] text-gnu-cream leading-none mb-6">
-              Gnu<br />Bar
+            <h1 className="gnu-headline text-7xl sm:text-8xl md:text-[10rem] text-gnu-cream leading-none mb-6 whitespace-pre-line">
+              {t('home.heroTitle')}
             </h1>
-            <p className="text-xl md:text-2xl text-gnu-cream/80 mb-8 max-w-xl leading-relaxed">
-              Bar og konsertsted i hjertet av Stavanger.<br />
-              Nedre Strandgate 23, ved Vågen.
+            <p className="text-xl md:text-2xl text-gnu-cream/80 mb-8 max-w-xl leading-relaxed whitespace-pre-line">
+              {t('home.heroSubtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link
+              <I18nLink
                 href="/hva-skjer"
                 className="gnu-card bg-gnu-red text-gnu-cream px-6 py-3 font-bold uppercase text-sm tracking-wide hover:bg-gnu-red-light"
               >
-                Hva skjer →
-              </Link>
-              <Link
+                {t('home.heroCtaPrimary')}
+              </I18nLink>
+              <I18nLink
                 href="/booking"
                 className="gnu-card bg-gnu-cream text-gnu-black px-6 py-3 font-bold uppercase text-sm tracking-wide"
               >
-                Book Gnu
-              </Link>
+                {t('home.heroCtaSecondary')}
+              </I18nLink>
             </div>
           </div>
         </div>
@@ -54,11 +93,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8">
           <div className="flex items-center gap-2 font-bold uppercase text-sm tracking-wide">
             <Clock size={18} />
-            <span>Man/Tir/Ons/Tor/Søn: 16:00–00:00</span>
+            <span>{t('common.mondayToSunday')}: 16:00–00:00</span>
           </div>
           <span className="hidden sm:inline font-bold">•</span>
           <div className="font-bold uppercase text-sm tracking-wide">
-            Fre/Lør: 15:00–02:00
+            {t('common.fridayToSaturday')}: 15:00–02:00
           </div>
         </div>
       </section>
@@ -67,12 +106,12 @@ export default function HomePage() {
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="gnu-headline text-5xl md:text-7xl text-gnu-green mb-12">
-            Hver uke på Gnu
+            {t('home.weeklyEventsHeading')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {weeklyEvents.map((event) => (
-              <div key={event.title} className="gnu-card bg-gnu-cream p-6">
-                <div className={`gnu-badge ${eventTypeColors[event.type]} mb-4`}>
+            {weeklyEvents && weeklyEvents.map((event: Record<string, string>, index: number) => (
+              <div key={index} className="gnu-card bg-gnu-cream p-6">
+                <div className={`gnu-badge ${eventTypeColors[event.type] || 'bg-gnu-green text-gnu-cream'} mb-4`}>
                   {event.date}
                 </div>
                 <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
@@ -82,12 +121,12 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <Link
+            <I18nLink
               href="/hva-skjer"
               className="inline-block gnu-card bg-gnu-green text-gnu-cream px-8 py-3 font-bold uppercase text-sm tracking-wide"
             >
-              Se hele programmet →
-            </Link>
+              {t('home.seeFullProgram')}
+            </I18nLink>
           </div>
         </div>
       </section>
@@ -95,44 +134,44 @@ export default function HomePage() {
       {/* Feature Cards */}
       <section className="bg-gnu-green py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Link href="/gnu-sounds" className="gnu-card bg-gnu-cream p-8 group">
+          <I18nLink href="/gnu-sounds" className="gnu-card bg-gnu-cream p-8 group">
             <div className="flex items-center gap-3 mb-4">
               <Music size={28} className="text-gnu-red" />
-              <h3 className="text-2xl font-bold uppercase">Gnu Sounds</h3>
+              <h3 className="text-2xl font-bold uppercase">{t('home.gnuSoundsCard.title')}</h3>
             </div>
             <p className="text-gnu-black/70 mb-4">
-              Full-lengde opptak av konserter og gigs på Gnu. Se og hør live musikk fra scenen vår.
+              {t('home.gnuSoundsCard.description')}
             </p>
             <span className="font-bold text-gnu-red group-hover:text-gnu-red-light transition-colors uppercase text-sm">
-              Se videoer →
+              {t('home.gnuSoundsCard.link')}
             </span>
-          </Link>
+          </I18nLink>
 
-          <Link href="/gnu-raua" className="gnu-card bg-gnu-cream p-8 group">
+          <I18nLink href="/gnu-raua" className="gnu-card bg-gnu-cream p-8 group">
             <div className="flex items-center gap-3 mb-4">
               <BookOpen size={28} className="text-gnu-olive" />
-              <h3 className="text-2xl font-bold uppercase">Gnu-Rauå</h3>
+              <h3 className="text-2xl font-bold uppercase">{t('home.gnuRauaCard.title')}</h3>
             </div>
             <p className="text-gnu-black/70 mb-4">
-              Historien om Stavangers mest unødvendige monument — og hvorfor det betyr noe.
+              {t('home.gnuRauaCard.description')}
             </p>
             <span className="font-bold text-gnu-olive group-hover:text-gnu-green transition-colors uppercase text-sm">
-              Les historien →
+              {t('home.gnuRauaCard.link')}
             </span>
-          </Link>
+          </I18nLink>
 
-          <Link href="/booking" className="gnu-card bg-gnu-cream p-8 group">
+          <I18nLink href="/booking" className="gnu-card bg-gnu-cream p-8 group">
             <div className="flex items-center gap-3 mb-4">
               <Calendar size={28} className="text-gnu-gold" />
-              <h3 className="text-2xl font-bold uppercase">Booking</h3>
+              <h3 className="text-2xl font-bold uppercase">{t('home.bookingCard.title')}</h3>
             </div>
             <p className="text-gnu-black/70 mb-4">
-              Book Gnu for private arrangementer, firmafester, bursdager eller andre anledninger.
+              {t('home.bookingCard.description')}
             </p>
             <span className="font-bold text-gnu-gold group-hover:text-gnu-red transition-colors uppercase text-sm">
-              Ta kontakt →
+              {t('home.bookingCard.link')}
             </span>
-          </Link>
+          </I18nLink>
         </div>
       </section>
 
@@ -141,7 +180,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="gnu-headline text-5xl md:text-7xl text-gnu-green mb-6">
-              Finn oss
+              {t('home.findUs')}
             </h2>
             <div className="flex items-start gap-3 mb-4">
               <MapPin size={24} className="text-gnu-red mt-1 shrink-0" />
@@ -157,7 +196,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="inline-block mt-4 gnu-card bg-gnu-green text-gnu-cream px-6 py-3 font-bold uppercase text-sm tracking-wide"
             >
-              Åpne i Google Maps →
+              {t('home.openInMaps')}
             </a>
           </div>
           <div className="gnu-card overflow-hidden gnu-tilt-right">

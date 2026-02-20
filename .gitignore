@@ -43,3 +43,8 @@ db/*.db-journal
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# CMS database
+/data
+data/*.db
+data/*.db-journal

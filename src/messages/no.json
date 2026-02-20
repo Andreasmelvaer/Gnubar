@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "hvaSkjer": "Hva skjer",
+    "gnuSounds": "Gnu Sounds",
+    "gnuRaua": "Gnu-Rauå",
+    "omGnu": "Om Gnu",
+    "booking": "Booking"
+  },
+  "home": {
+    "heroTitle": "Gnu\nBar",
+    "heroSubtitle": "Bar og konsertsted i hjertet av Stavanger.\nNedre Strandgate 23, ved Vågen.",
+    "heroCtaPrimary": "Hva skjer →",
+    "heroCtaSecondary": "Book Gnu",
+    "address": "Nedre Strandgate 23",
+    "weeklyEventsHeading": "Hver uke på Gnu",
+    "seeFullProgram": "Se hele programmet →",
+    "gnuSoundsCard": {
+      "title": "Gnu Sounds",
+      "description": "Full-lengde opptak av konserter og gigs på Gnu. Se og hør live musikk fra scenen vår.",
+      "link": "Se videoer →"
+    },
+    "gnuRauaCard": {
+      "title": "Gnu-Rauå",
+      "description": "Historien om Stavangers mest unødvendige monument — og hvorfor det betyr noe.",
+      "link": "Les historien →"
+    },
+    "bookingCard": {
+      "title": "Booking",
+      "description": "Book Gnu for private arrangementer, firmafester, bursdager eller andre anledninger.",
+      "link": "Ta kontakt →"
+    },
+    "findUs": "Finn oss",
+    "openInMaps": "Åpne i Google Maps →",
+    "eventWeekly": [
+      {
+        "date": "Torsdag",
+        "title": "Quiz",
+        "time": "kl. 20:00",
+        "desc": "NESTEN hver torsdag!"
+      },
+      {
+        "date": "Fredag",
+        "title": "GNU-Pølse",
+        "time": "fra kl. 15:00",
+        "desc": "Pølsefredag på Gnu"
+      },
+      {
+        "date": "Lørdag",
+        "title": "DJ-Lørdag",
+        "time": "kl. 22:00",
+        "desc": "DJ i baren"
+      },
+      {
+        "date": "Søndag",
+        "title": "Søndagsskolen",
+        "time": "fra kl. 16:00",
+        "desc": "Søker nye medlemmer"
+      }
+    ]
+  },
+  "hvaSkjer": {
+    "pageTitle": "Hva Skjer",
+    "recurringEventsHeading": "Faste Innslag",
+    "upcomingEventsHeading": "Kommende Arrangementer"
+  },
+  "gnuSounds": {
+    "pageTitle": "Gnu Sounds",
+    "description": "Videoopptak fra Gnu sine beste musikalske stunder. Konserter, jam-sesjoner, og uforglemmelige kveldinger."
+  },
+  "gnuRaua": {
+    "pageTitle": "Gnu-Rauå",
+    "subtitle": "Stavangers mest unødvendige monument — og hvorfor det betyr noe",
+    "content1": "Gnu-Rauå er mer enn bare et monument av skum og pels. Det er en symbol på det uventede, det absurde, og det som gjør Stavanger til en helt spesiell by. Her på Gnu kan vi sitje og dele historier om en rau som aldri levde, men som lever videre i hjertene våre.",
+    "content2": "Den fulle historien kommer snart. For nå vet vi at Gnu-Rauå holder på å skrive sin egen legende, en kapittel om gangen, en skål om gangen, og en eller annen sjalu kjærlighet til denne byen og denne flokken.",
+    "content3": "Vilkommen til monumentet som ingen så komme, men som alle trenger.",
+    "linkToPoetry": "Les Rauspikka Poesi →"
+  },
+  "poesi": {
+    "pageTitle": "Rauspikka Poesi",
+    "subtitle": "Tre dikt om Gnu-Rauå",
+    "backLink": "Tilbake til Gnu-Rauå →"
+  },
+  "om": {
+    "pageTitle": "Om Gnu",
+    "mainDescription": "Gnu er en rock'n'roll bar som ligger ved Vågen med fantastisk utsikt over havnen. Vi er kjent for våre berømte pølser, hyggelige quizer, og live musikk som får folk til å danse selv når de bare vil drikke øl.",
+    "secondaryDescription": "På Gnu kan du sitte og se utover Vågen, på alle de andre flokkdyrene.",
+    "offerHeading": "Det vi tilbyr",
+    "musicBar": {
+      "title": "Musikkbar",
+      "description": "Live konserter, jazz jam-sesjoner, DJ-kveldinger, og vinyl listening parties. Musikk er livsblod på Gnu."
+    },
+    "quiz": {
+      "title": "Quiz & Underholdning",
+      "description": "Torsdagsquizen er berømt. Bingo, musikk-trivia, og andre morsome aktiviteter året rundt."
+    },
+    "food": {
+      "title": "Mat & Drikke",
+      "description": "Berømte pølser, godt utvalg av øl og brennevin, og det som trengs for å holde energien oppe."
+    },
+    "view": {
+      "title": "Utsikt & Miljø",
+      "description": "Havnebyutsikt fra Stavanger. Hyggelig brutalistisk interiør og en flokkmentalitet som varmer."
+    },
+    "hoursHeading": "Åpningstider"
+  },
+  "booking": {
+    "pageTitle": "Booking & Kontakt",
+    "bookingInfoTitle": "Vil du booke Gnu?",
+    "bookingInfoText1": "Gnu disponerer av for private eventer, bedriftsfester, konserter, og andre arrangementer. Vi har erfaring med alt fra små møter til større festivaler.",
+    "bookingInfoText2": "Kontakt oss med detaljer om ditt arrangement, så kan vi diskutere muligheter og pris.",
+    "contactHeading": "Kontaktinformasjon",
+    "barManager": "Barsjef",
+    "barManagerSubtitle": "Bar Manager & Booking Contact",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "hours": "Åpningstider",
+    "formTitle": "Booking-forespørsel",
+    "formName": "Navn",
+    "formEmail": "E-post",
+    "formDate": "Ønsket dato",
+    "formEventType": "Type arrangement",
+    "formMessage": "Beskjed",
+    "formPlaceholder": "Fortell oss om arrangementet ditt...",
+    "formSelectPlaceholder": "-- Velg type --",
+    "formSubmit": "Send forespørsel",
+    "eventTypeOptions": {
+      "concert": "Konsert",
+      "dj": "DJ-kvelder",
+      "private": "Privat event",
+      "corporate": "Bedriftsfest",
+      "wedding": "Bryllup",
+      "other": "Annet"
+    }
+  },
+  "footer": {
+    "tagline": "Stavangers mest unødvendige bar — siden 2016.",
+    "sectionLinks": "Sider",
+    "sectionContact": "Kontakt",
+    "copyright": "© {year} Gnu Bar, Stavanger. Alle rettigheter reservert."
+  },
+  "common": {
+    "readMore": "Les mer →",
+    "seeAll": "Se alt →",
+    "back": "Tilbake →",
+    "submit": "Send",
+    "openingHours": "Åpningstider",
+    "mondayToSunday": "Man/Tir/Ons/Tor/Søn",
+    "fridayToSaturday": "Fre/Lør",
+    "address": "Nedre Strandgate 23, 4005 Stavanger",
+    "phone": "51 56 73 00",
+    "instagram": "@gnu.bar"
+  }
+}
