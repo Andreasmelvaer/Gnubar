@@ -8,25 +8,25 @@
   },
   "home": {
     "heroTitle": "Gnu\nBar",
-    "heroSubtitle": "A bar and concert venue in the heart of Stavanger.\nNedre Strandgate 23, by the waterfront.",
+    "heroSubtitle": "Rock'n'roll, sausages and harbor views.\nNedre Strandgate 23, by the waterfront in Stavanger.",
     "heroCtaPrimary": "What's On →",
     "heroCtaSecondary": "Book Gnu",
     "address": "Nedre Strandgate 23",
-    "weeklyEventsHeading": "Weekly Events at Gnu",
+    "weeklyEventsHeading": "Weekly at Gnu",
     "seeFullProgram": "See Full Program →",
     "gnuSoundsCard": {
       "title": "Gnu Sounds",
-      "description": "Full-length recordings of concerts and gigs at Gnu. Watch and listen to live music from our stage.",
+      "description": "Full concerts filmed from our stage. The sound of Gnu, straight to your living room.",
       "link": "Watch Videos →"
     },
     "gnuRauaCard": {
       "title": "Gnu-Rauå",
-      "description": "The story of Stavanger's most unnecessary monument — and why it matters.",
+      "description": "Stavanger's most unnecessary monument — and the story behind it.",
       "link": "Read the Story →"
     },
     "bookingCard": {
       "title": "Booking",
-      "description": "Book Gnu for private events, corporate parties, birthdays, or other occasions.",
+      "description": "Office party, birthday, concert or something else entirely? Gnu is ready.",
       "link": "Get in Touch →"
     },
     "findUs": "Find Us",
@@ -65,15 +65,22 @@
   },
   "gnuSounds": {
     "pageTitle": "Gnu Sounds",
-    "description": "Video recordings from Gnu's finest musical moments. Concerts, jam sessions, and unforgettable evenings.",
-        "youtubeLink": "Watch all videos on YouTube →"
+    "description": "Full-length recordings from our stage. Concerts, jam sessions and nights you were either at — or wish you had been.",
+    "youtubeLink": "Watch all videos on YouTube →"
   },
   "gnuRaua": {
     "pageTitle": "Gnu-Rauå",
     "subtitle": "Stavanger's most unnecessary monument — and why it matters",
-    "content1": "Gnu-Rauå is more than just a monument made of foam and fur. It is a symbol of the unexpected, the absurd, and what makes Stavanger such a special city. Here at Gnu, we can sit and share stories about a gnu that never lived, but who lives on in our hearts.",
-    "content2": "The full story is coming soon. For now, we know that Gnu-Rauå is writing its own legend, one chapter at a time, one toast at a time, and a kind of jealous love for this city and this flock.",
-    "content3": "Welcome to the monument that no one saw coming, but everyone needs.",
+    "content1": "Gnu-Rauå is exactly what you think it is: the backside of a gnu, framed in gold, mounted on the wall. Foam, fur and pride. It's absurd, unnecessary, and absolutely perfect.",
+    "content2": "After 27 years apart from the head, the rear end has finally found its place on the wall. And with that, Gnu became a little more whole. Not a complete gnu, but more than the sum of its parts.",
+    "content3": "Welcome to the monument no one saw coming, but everyone needs. Cheers to the rump.",
+    "imageAlt1": "Gnu Bar interior with the gnu head on the wall",
+    "imageAlt2": "Acoustic stage at Gnu",
+    "imageAlt3": "View over Vågen harbor from Gnu",
+    "imageAlt4": "Packed house at a Gnu concert",
+    "imageAlt5": "Gnu-Rauå unveiling with the mayor",
+    "imageAlt6": "The gnu head on the wall",
+    "imageAlt7": "Gnu-Rauå — the backside framed in gold",
     "linkToPoetry": "Read Rauspikka Poetry →"
   },
   "poesi": {
@@ -83,35 +90,35 @@
   },
   "om": {
     "pageTitle": "About Gnu",
-    "mainDescription": "Gnu is a rock'n'roll bar located by the waterfront with fantastic views over the harbor. We are known for our famous sausages, fun quizzes, and live music that gets people dancing even when they just want to drink beer.",
-    "secondaryDescription": "At Gnu, you can sit and look out over the waterfront, at all the other herd animals.",
+    "mainDescription": "Gnu is a rock'n'roll bar by the waterfront. Famous sausages, legendary quiz nights, and live music that gets people dancing even when they only came for a beer.",
+    "secondaryDescription": "Pull up a chair, look out over Vågen, and join the herd.",
     "offerHeading": "What We Offer",
     "musicBar": {
       "title": "Music Bar",
-      "description": "Live concerts, jazz jam sessions, DJ nights, and vinyl listening parties. Music is the lifeblood of Gnu."
+      "description": "Live concerts, jazz jams, DJ nights and vinyl listening sessions. Music is the lifeblood of Gnu."
     },
     "quiz": {
       "title": "Quiz & Entertainment",
-      "description": "The Thursday quiz is famous. Bingo, music trivia, and other fun activities year-round."
+      "description": "The Thursday quiz is legendary. Bingo, music trivia and good times year-round."
     },
     "food": {
       "title": "Food & Drink",
-      "description": "Famous sausages, a good selection of beer and spirits, and everything you need to keep the energy up."
+      "description": "Famous sausages, a solid beer and spirits selection, and everything you need to keep going."
     },
     "view": {
       "title": "Views & Atmosphere",
-      "description": "Harbor views from Stavanger. Cozy brutalist interior and a herd mentality that warms the heart."
+      "description": "Harbor views right from the bar. Brutalist charm and a herd mentality that warms the heart."
     },
     "hoursHeading": "Opening Hours"
   },
   "booking": {
     "pageTitle": "Booking & Contact",
-    "bookingInfoTitle": "Want to Book Gnu?",
-    "bookingInfoText1": "Gnu is available for private events, corporate parties, concerts, and other arrangements. We have experience with everything from small meetings to larger festivals.",
-    "bookingInfoText2": "Contact us with details about your event, and we can discuss options and pricing.",
+    "bookingInfoTitle": "Want to book Gnu?",
+    "bookingInfoText1": "Gnu works for just about anything — office party, concert, private event or something you haven't quite found a word for yet. We've done it all, from small gatherings to full-blown festival nights.",
+    "bookingInfoText2": "Drop us a message with what you're thinking, and we'll figure it out together.",
     "contactHeading": "Contact Information",
     "barManager": "Bar Manager",
-    "barManagerSubtitle": "Bar Manager & Booking Contact",
+    "barManagerSubtitle": "Bar Manager & Booking",
     "phone": "Phone",
     "address": "Address",
     "hours": "Opening Hours",
@@ -121,7 +128,7 @@
     "formDate": "Preferred Date",
     "formEventType": "Type of Event",
     "formMessage": "Message",
-    "formPlaceholder": "Tell us about your event...",
+    "formPlaceholder": "Tell us what you have in mind...",
     "formSelectPlaceholder": "-- Select Type --",
     "formSubmit": "Send Request",
     "eventTypeOptions": {
