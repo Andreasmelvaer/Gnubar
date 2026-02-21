@@ -8,7 +8,7 @@
   },
   "home": {
     "heroTitle": "Gnu\nBar",
-    "heroSubtitle": "Rock'n'roll, sausages and harbor views.\nNedre Strandgate 23, by the waterfront in Stavanger.",
+    "heroSubtitle": "Sausages, live music and harbor views.\nNedre Strandgate 23, by the waterfront in Stavanger.",
     "heroCtaPrimary": "What's On →",
     "heroCtaSecondary": "Book Gnu",
     "address": "Nedre Strandgate 23",
@@ -32,6 +32,18 @@
     "findUs": "Find Us",
     "openInMaps": "Open in Google Maps →",
     "eventWeekly": [
+      {
+        "date": "Monday",
+        "title": "Master Monday",
+        "time": "",
+        "desc": "Master Monday at Gnu"
+      },
+      {
+        "date": "Wednesday",
+        "title": "Music Wednesday",
+        "time": "",
+        "desc": "Stavanger's young musicians meet up"
+      },
       {
         "date": "Thursday",
         "title": "Quiz",
@@ -90,7 +102,7 @@
   },
   "om": {
     "pageTitle": "About Gnu",
-    "mainDescription": "Gnu is a rock'n'roll bar by the waterfront. Famous sausages, legendary quiz nights, and live music that gets people dancing even when they only came for a beer.",
+    "mainDescription": "Gnu is an independent bar by the waterfront. Famous sausages, legendary quiz nights, and live music that gets people dancing even when they only came for a beer.",
     "secondaryDescription": "Pull up a chair, look out over Vågen, and join the herd.",
     "offerHeading": "What We Offer",
     "musicBar": {
