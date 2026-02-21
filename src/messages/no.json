@@ -8,7 +8,7 @@
   },
   "home": {
     "heroTitle": "Gnu\nBar",
-    "heroSubtitle": "Rock'n'roll, pølser og havneutsikt.\nNedre Strandgate 23, ved Vågen i Stavanger.",
+    "heroSubtitle": "Pølser, live musikk og havneutsikt.\nNedre Strandgate 23, ved Vågen i Stavanger.",
     "heroCtaPrimary": "Hva skjer →",
     "heroCtaSecondary": "Book Gnu",
     "address": "Nedre Strandgate 23",
@@ -32,6 +32,18 @@
     "findUs": "Finn oss",
     "openInMaps": "Åpne i Google Maps →",
     "eventWeekly": [
+      {
+        "date": "Mandag",
+        "title": "Master Monday",
+        "time": "",
+        "desc": "Master Monday på Gnu"
+      },
+      {
+        "date": "Onsdag",
+        "title": "Musikkonsdag",
+        "time": "",
+        "desc": "Det unge musikkmiljøet i Stavanger samles"
+      },
       {
         "date": "Torsdag",
         "title": "Quiz",
@@ -90,7 +102,7 @@
   },
   "om": {
     "pageTitle": "Om Gnu",
-    "mainDescription": "Gnu er en rock'n'roll bar ved Vågen. Berømte pølser, legendariske quiz-kveldinger, og live musikk som får folk til å danse sjøl om de bare kom for en øl.",
+    "mainDescription": "Gnu er en uavhengig bar ved Vågen. Berømte pølser, legendariske quiz-kveldinger, og live musikk som får folk til å danse sjøl om de bare kom for en øl.",
     "secondaryDescription": "Sett deg ned, se utover Vågen, og bli med i flokken.",
     "offerHeading": "Det vi tilbyr",
     "musicBar": {
