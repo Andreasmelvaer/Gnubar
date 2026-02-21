@@ -12,11 +12,12 @@ export default function Header() {
   const pathname = usePathname();
   const t = useTranslations('nav');
 
-  const navLinks: Array<{ href: '/' | '/hva-skjer' | '/gnu-sounds' | '/gnu-raua' | '/om' | '/booking', labelKey: string }> = [
+  const navLinks: Array<{ href: '/' | '/hva-skjer' | '/gnu-sounds' | '/gnu-raua' | '/om' | '/historie' | '/booking', labelKey: string }> = [
     { href: '/hva-skjer', labelKey: 'hvaSkjer' },
     { href: '/gnu-sounds', labelKey: 'gnuSounds' },
     { href: '/gnu-raua', labelKey: 'gnuRaua' },
     { href: '/om', labelKey: 'omGnu' },
+    { href: '/historie', labelKey: 'historie' },
     { href: '/booking', labelKey: 'booking' },
   ];
 
@@ -130,3 +131,4 @@ export default function Header() {
     </header>
   );
 }
+
