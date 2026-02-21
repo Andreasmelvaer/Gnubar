@@ -20,6 +20,10 @@ export const routing = defineRouting({
       no: '/om',
       en: '/about',
     },
+    '/historie': {
+      no: '/historie',
+      en: '/history',
+    },
     '/booking': '/booking',
   },
 });
