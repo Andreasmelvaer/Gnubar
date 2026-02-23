@@ -74,7 +74,24 @@
   "hvaSkjer": {
     "pageTitle": "Hva Skjer",
     "recurringEventsHeading": "Faste Innslag",
-    "upcomingEventsHeading": "Kommende Arrangementer"
+    "upcomingEventsHeading": "Kommende Arrangementer",
+    "noUpcomingEvents": "Ingen kommende arrangementer akkurat nå. Sjekk tilbake snart!",
+    "monday": "Mandag",
+    "wednesday": "Onsdag",
+    "thursday": "Torsdag",
+    "friday": "Fredag",
+    "saturday": "Lørdag",
+    "sunday": "Søndag",
+    "from": "fra",
+    "masterMondayDesc": "Master Monday på Gnu",
+    "musicWednesday": "Musikkonsdag",
+    "musicWednesdayDesc": "Det unge musikkmiljøet i Stavanger samles",
+    "quizDesc": "Quiz NESTEN hver torsdag! Premie til vinnerlaget.",
+    "polseDesc": "Pølsefredag på Gnu. Berømte GNU-pølser fra baren åpner.",
+    "djSaturday": "DJ-Lørdag",
+    "djDesc": "DJ i baren hver lørdag kveld.",
+    "sundaySchool": "Søndagsskolen",
+    "sundaySchoolDesc": "Søker nye medlemmer! Hver søndag på Gnu."
   },
   "gnuSounds": {
     "pageTitle": "Gnu Sounds",
@@ -181,6 +198,12 @@
     "formPlaceholder": "Fortell oss hva du har i tankane...",
     "formSelectPlaceholder": "-- Velg type --",
     "formSubmit": "Send forespørsel",
+    "formSending": "Sender...",
+    "successTitle": "Takk!",
+    "successMessage": "Vi har mottatt forespørselen din og tar kontakt så snart vi kan.",
+    "sendAnother": "Send en ny forespørsel",
+    "errorMessage": "Noe gikk galt. Prøv igjen, eller ring oss på 51 56 73 00.",
+    "newsletterOptIn": "Hold meg oppdatert om konserter og events på Gnu Bar",
     "eventTypeOptions": {
       "concert": "Konsert",
       "dj": "DJ-kveld",
@@ -194,7 +217,11 @@
     "tagline": "Stavangers mest unødvendige bar — siden 2016.",
     "sectionLinks": "Sider",
     "sectionContact": "Kontakt",
-    "copyright": "© {year} Gnu Bar, Stavanger. Alle rettigheter reservert."
+    "copyright": "© {year} Gnu Bar, Stavanger. Alle rettigheter reservert.",
+    "newsletterHeading": "Få nyheter fra Gnu Bar",
+    "newsletterPlaceholder": "din@epost.no",
+    "newsletterSuccess": "Takk! Du er nå påmeldt.",
+    "newsletterButton": "Meld på"
   },
   "common": {
     "readMore": "Les mer →",
