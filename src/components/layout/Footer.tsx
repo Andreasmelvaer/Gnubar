@@ -47,6 +47,9 @@ export default function Footer() {
             <I18nLink href="/om" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
               {t('nav.omGnu')}
             </I18nLink>
+            <I18nLink href="/historie" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
+              {t('nav.historie')}
+            </I18nLink>
             <I18nLink href="/booking" className="text-gnu-cream/70 hover:text-gnu-gold transition-colors">
               {t('nav.booking')}
             </I18nLink>
