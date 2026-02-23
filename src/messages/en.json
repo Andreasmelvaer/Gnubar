@@ -74,7 +74,24 @@
   "hvaSkjer": {
     "pageTitle": "What's On",
     "recurringEventsHeading": "Regular Events",
-    "upcomingEventsHeading": "Upcoming Events"
+    "upcomingEventsHeading": "Upcoming Events",
+    "noUpcomingEvents": "No upcoming events right now. Check back soon!",
+    "monday": "Monday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "from": "from",
+    "masterMondayDesc": "Master Monday at Gnu",
+    "musicWednesday": "Music Wednesday",
+    "musicWednesdayDesc": "Stavanger's young musicians meet up",
+    "quizDesc": "Quiz ALMOST every Thursday! Prize for the winning team.",
+    "polseDesc": "Sausage Friday at Gnu. Famous GNU sausages from when the bar opens.",
+    "djSaturday": "DJ Saturday",
+    "djDesc": "DJ in the bar every Saturday night.",
+    "sundaySchool": "Sunday School",
+    "sundaySchoolDesc": "Looking for new members! Every Sunday at Gnu."
   },
   "gnuSounds": {
     "pageTitle": "Gnu Sounds",
@@ -181,6 +198,12 @@
     "formPlaceholder": "Tell us what you have in mind...",
     "formSelectPlaceholder": "-- Select Type --",
     "formSubmit": "Send Request",
+    "formSending": "Sending...",
+    "successTitle": "Thank you!",
+    "successMessage": "We've received your request and will get back to you soon.",
+    "sendAnother": "Send another request",
+    "errorMessage": "Something went wrong. Please try again, or call us at 51 56 73 00.",
+    "newsletterOptIn": "Keep me updated on concerts and events at Gnu Bar",
     "eventTypeOptions": {
       "concert": "Concert",
       "dj": "DJ Night",
@@ -194,7 +217,11 @@
     "tagline": "Stavanger's most unnecessary bar — since 2016.",
     "sectionLinks": "Pages",
     "sectionContact": "Contact",
-    "copyright": "© {year} Gnu Bar, Stavanger. All rights reserved."
+    "copyright": "© {year} Gnu Bar, Stavanger. All rights reserved.",
+    "newsletterHeading": "Get news from Gnu Bar",
+    "newsletterPlaceholder": "your@email.com",
+    "newsletterSuccess": "Thanks! You're now subscribed.",
+    "newsletterButton": "Subscribe"
   },
   "common": {
     "readMore": "Read More →",

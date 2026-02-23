@@ -15,22 +15,39 @@ export default function BookingPage() {
     date: '',
     eventType: '',
     message: '',
+    newsletterOptIn: false,
   });
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Form submission logic will be added later
-    console.log('Form data:', formData);
+    setStatus('loading');
+
+    try {
+      const res = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error('Failed to submit');
+
+      setStatus('success');
+      setFormData({ name: '', email: '', date: '', eventType: '', message: '', newsletterOptIn: false });
+    } catch {
+      setStatus('error');
+    }
   };
 
   const breadcrumbs = [
@@ -114,97 +131,131 @@ export default function BookingPage() {
             {t('formTitle')}
           </h2>
 
-          <form onSubmit={handleSubmit} className="bg-gnu-black border-4 border-gnu-black p-8">
-            <div className="mb-6">
-              <label htmlFor="name" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
-                {t('formName')}
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
-                required
-              />
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="email" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
-                {t('formEmail')}
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
-                required
-              />
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="date" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
-                {t('formDate')}
-              </label>
-              <input
-                type="date"
-                id="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
-                required
-              />
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="eventType" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
-                {t('formEventType')}
-              </label>
-              <select
-                id="eventType"
-                name="eventType"
-                value={formData.eventType}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
-                required
+          {status === 'success' ? (
+            <div className="bg-gnu-green border-4 border-gnu-black p-8 text-center">
+              <h3 className="text-gnu-cream text-3xl font-bold mb-4">{t('successTitle')}</h3>
+              <p className="text-gnu-cream text-lg">{t('successMessage')}</p>
+              <button
+                onClick={() => setStatus('idle')}
+                className="mt-6 bg-gnu-cream text-gnu-black px-6 py-3 font-bold uppercase tracking-wider hover:bg-gnu-gold transition-colors"
               >
-                <option value="">{t('formSelectPlaceholder')}</option>
-                <option value="konsert">{t('eventTypeOptions.concert')}</option>
-                <option value="dj">{t('eventTypeOptions.dj')}</option>
-                <option value="privat">{t('eventTypeOptions.private')}</option>
-                <option value="bedrift">{t('eventTypeOptions.corporate')}</option>
-                <option value="bryllup">{t('eventTypeOptions.wedding')}</option>
-                <option value="annet">{t('eventTypeOptions.other')}</option>
-              </select>
+                {t('sendAnother')}
+              </button>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="bg-gnu-black border-4 border-gnu-black p-8">
+              <div className="mb-6">
+                <label htmlFor="name" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
+                  {t('formName')}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
+                  required
+                />
+              </div>
 
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
-                {t('formMessage')}
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={6}
-                className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
-                placeholder={t('formPlaceholder')}
-                required
-              />
-            </div>
+              <div className="mb-6">
+                <label htmlFor="email" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
+                  {t('formEmail')}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
+                  required
+                />
+              </div>
 
-            <button
-              type="submit"
-              className="bg-gnu-red text-gnu-cream px-8 py-4 font-bold text-lg border-4 border-gnu-red hover:bg-gnu-gold hover:text-gnu-black transition-colors uppercase tracking-wider"
-            >
-              {t('formSubmit')}
-            </button>
-          </form>
+              <div className="mb-6">
+                <label htmlFor="date" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
+                  {t('formDate')}
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
+                  required
+                />
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="eventType" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
+                  {t('formEventType')}
+                </label>
+                <select
+                  id="eventType"
+                  name="eventType"
+                  value={formData.eventType}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
+                  required
+                >
+                  <option value="">{t('formSelectPlaceholder')}</option>
+                  <option value="konsert">{t('eventTypeOptions.concert')}</option>
+                  <option value="dj">{t('eventTypeOptions.dj')}</option>
+                  <option value="privat">{t('eventTypeOptions.private')}</option>
+                  <option value="bedrift">{t('eventTypeOptions.corporate')}</option>
+                  <option value="bryllup">{t('eventTypeOptions.wedding')}</option>
+                  <option value="annet">{t('eventTypeOptions.other')}</option>
+                </select>
+              </div>
+
+              <div className="mb-6">
+                <label htmlFor="message" className="block text-gnu-cream font-bold mb-2 uppercase tracking-wider">
+                  {t('formMessage')}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={6}
+                  className="w-full px-4 py-3 border-2 border-gnu-cream bg-gnu-cream text-gnu-black font-bold"
+                  placeholder={t('formPlaceholder')}
+                  required
+                />
+              </div>
+
+              {/* Newsletter opt-in */}
+              <div className="mb-8">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="newsletterOptIn"
+                    checked={formData.newsletterOptIn}
+                    onChange={handleChange}
+                    className="mt-1 w-5 h-5 accent-gnu-gold"
+                  />
+                  <span className="text-gnu-cream">{t('newsletterOptIn')}</span>
+                </label>
+              </div>
+
+              {status === 'error' && (
+                <div className="mb-6 bg-gnu-red/20 border-2 border-gnu-red p-4">
+                  <p className="text-gnu-red font-bold">{t('errorMessage')}</p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="bg-gnu-red text-gnu-cream px-8 py-4 font-bold text-lg border-4 border-gnu-red hover:bg-gnu-gold hover:text-gnu-black transition-colors uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === 'loading' ? t('formSending') : t('formSubmit')}
+              </button>
+            </form>
+          )}
         </section>
       </div>
     </main>

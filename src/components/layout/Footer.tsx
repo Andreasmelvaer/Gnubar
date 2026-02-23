@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { MapPin, Phone, Clock, Instagram } from 'lucide-react';
 import { Link as I18nLink } from '@/i18n/navigation';
+import { NewsletterSignup } from '@/components/NewsletterSignup';
 
 export default function Footer() {
   const t = useTranslations();
@@ -84,6 +85,23 @@ export default function Footer() {
               <Instagram size={18} className="shrink-0" />
               @gnu.bar
             </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Newsletter signup */}
+      <div className="border-t border-gnu-cream/10 py-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-md mx-auto text-center">
+            <h3 className="font-bold uppercase text-sm tracking-wide text-gnu-gold mb-3">
+              {t('footer.newsletterHeading')}
+            </h3>
+            <NewsletterSignup
+              label={t('footer.newsletterHeading')}
+              placeholder={t('footer.newsletterPlaceholder')}
+              successText={t('footer.newsletterSuccess')}
+              buttonText={t('footer.newsletterButton')}
+            />
           </div>
         </div>
       </div>
