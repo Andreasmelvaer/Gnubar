@@ -31,8 +31,12 @@ export async function GET(request: NextRequest) {
     if (!error) {
       return supabaseResponse;
     }
+
+    // Include error details for debugging
+    console.error('Auth callback error:', error.message);
+    return NextResponse.redirect(`${origin}/admin/login?error=auth&message=${encodeURIComponent(error.message)}`);
   }
 
-  // Return to login page on error
-  return NextResponse.redirect(`${origin}/admin/login?error=auth`);
+  // Return to login page on error (no code in URL)
+  return NextResponse.redirect(`${origin}/admin/login?error=auth&message=${encodeURIComponent('No code parameter found')}`);
 }

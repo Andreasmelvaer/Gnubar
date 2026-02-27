@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
-import { Calendar, BookOpen, Mail, LogOut, Menu, X, Home } from 'lucide-react';
+import { Calendar, BookOpen, Mail, LogOut, Menu, X, Home, FileText } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {
@@ -39,6 +39,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     { href: '/admin/events', label: 'Arrangementer', icon: Calendar },
     { href: '/admin/bookings', label: 'Bookinger', icon: BookOpen },
     { href: '/admin/newsletter', label: 'Nyhetsbrev', icon: Mail },
+    { href: '/admin/content', label: 'Innhold', icon: FileText },
   ];
 
   return (

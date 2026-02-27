@@ -16,7 +16,7 @@ export default function Footer() {
             <Clock size={16} />
             {t('common.mondayToSunday')}: 16:00–00:00
           </span>
-          <span className="hidden sm:inline">•</span>
+          <span className="hidden sm:inline">&bull;</span>
           <span>{t('common.fridayToSaturday')}: 15:00–02:00</span>
         </div>
       </div>
@@ -70,11 +70,11 @@ export default function Footer() {
               className="flex items-start gap-2 hover:text-gnu-gold transition-colors"
             >
               <MapPin size={18} className="mt-0.5 shrink-0" />
-              <span>Nedre Strandgate 23<br />4005 Stavanger</span>
+              <span>{t('common.address')}</span>
             </a>
             <a href="tel:+4751567300" className="flex items-center gap-2 hover:text-gnu-gold transition-colors">
               <Phone size={18} className="shrink-0" />
-              51 56 73 00
+              {t('common.phone')}
             </a>
             <a
               href="https://instagram.com/gnu.bar"
@@ -83,7 +83,7 @@ export default function Footer() {
               className="flex items-center gap-2 hover:text-gnu-gold transition-colors"
             >
               <Instagram size={18} className="shrink-0" />
-              @gnu.bar
+              {t('common.instagram')}
             </a>
           </div>
         </div>

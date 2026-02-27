@@ -98,7 +98,7 @@ export default function BookingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <div className="gnu-card bg-gnu-green border-4 border-gnu-black p-6">
               <h3 className="text-gnu-cream text-2xl font-bold mb-4">{t('barManager')}</h3>
-              <p className="text-gnu-cream text-lg font-bold mb-2">Andrea</p>
+              <p className="text-gnu-cream text-lg font-bold mb-2">{t('contactName')}</p>
               <p className="text-gnu-cream text-sm uppercase tracking-wider">
                 {t('barManagerSubtitle')}
               </p>
@@ -106,21 +106,17 @@ export default function BookingPage() {
 
             <div className="gnu-card bg-gnu-red border-4 border-gnu-black p-6">
               <h3 className="text-gnu-cream text-2xl font-bold mb-4">{t('phone')}</h3>
-              <p className="text-gnu-cream text-2xl font-bold">51 56 73 00</p>
+              <p className="text-gnu-cream text-2xl font-bold">{t('contactPhone')}</p>
             </div>
 
             <div className="gnu-card bg-gnu-gold text-gnu-black border-4 border-gnu-black p-6">
               <h3 className="text-gnu-black text-2xl font-bold mb-4">{t('address')}</h3>
-              <p className="text-gnu-black text-lg font-bold">Nedre Strandgate 23</p>
-              <p className="text-gnu-black">Stavanger, Norge</p>
+              <p className="text-gnu-black text-lg font-bold">{t('contactAddress')}</p>
             </div>
 
             <div className="gnu-card bg-gnu-olive border-4 border-gnu-black p-6">
               <h3 className="text-gnu-cream text-2xl font-bold mb-4">{t('hours')}</h3>
-              <p className="text-gnu-cream text-sm">
-                {common('mondayToSunday')}: 16:00–00:00<br />
-                {common('fridayToSaturday')}: 15:00–02:00
-              </p>
+              <p className="text-gnu-cream text-sm">{t('contactHours')}</p>
             </div>
           </div>
         </section>

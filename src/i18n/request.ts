@@ -2,8 +2,9 @@ import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 import messagesNo from '@/messages/no.json';
 import messagesEn from '@/messages/en.json';
+import { getMessagesWithCMSOverrides } from '@/lib/content';
 
-const messages = {
+const staticMessages = {
   no: messagesNo,
   en: messagesEn,
 };
@@ -13,15 +14,25 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   // Validate that the incoming locale is valid
   if (!routing.locales.includes(locale as typeof routing.locales[number])) {
+    const messages = await getMessagesWithCMSOverrides(
+      staticMessages[routing.defaultLocale] as Record<string, unknown>,
+      routing.defaultLocale
+    );
     return {
       locale: routing.defaultLocale,
-      messages: messages[routing.defaultLocale],
+      messages,
     };
   }
 
+  const validLocale = locale as 'no' | 'en';
+  const messages = await getMessagesWithCMSOverrides(
+    staticMessages[validLocale] as Record<string, unknown>,
+    validLocale
+  );
+
   return {
     locale,
-    messages: messages[locale as keyof typeof messages],
+    messages,
     timeZone: 'Europe/Oslo',
     now: new Date(),
   };

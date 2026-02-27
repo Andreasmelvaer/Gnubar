@@ -2,14 +2,35 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceRoleClient, createServerSupabaseClient } from '@/lib/supabase/server';
 
 // Public: fetch published events
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const supabase = await createServiceRoleClient();
+    const { searchParams } = new URL(request.url);
+    const includeRecurring = searchParams.get('recurring') === 'true';
 
+    if (includeRecurring) {
+      // Fetch recurring events separately
+      const { data: recurring, error: recurringError } = await supabase
+        .from('events')
+        .select('*')
+        .eq('is_published', true)
+        .eq('is_recurring', true)
+        .order('recurring_day', { ascending: true });
+
+      if (recurringError) {
+        console.error('Recurring events fetch error:', recurringError);
+        return NextResponse.json({ error: 'Failed to fetch events' }, { status: 500 });
+      }
+
+      return NextResponse.json({ events: recurring || [] });
+    }
+
+    // Fetch upcoming non-recurring events
     const { data: events, error } = await supabase
       .from('events')
       .select('*')
       .eq('is_published', true)
+      .eq('is_recurring', false)
       .gte('date', new Date().toISOString().split('T')[0])
       .order('date', { ascending: true });
 
@@ -36,7 +57,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { title_no, title_en, description_no, description_en, event_type, date, time, is_recurring, recurring_day, is_published } = body;
+    const { title_no, title_en, description_no, description_en, event_type, date, time, is_recurring, recurring_day, recurring_frequency, is_published } = body;
 
     if (!title_no || !event_type || !date || !time) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -53,8 +74,9 @@ export async function POST(request: NextRequest) {
         event_type,
         date,
         time,
-        is_recurring: is_recurring || false,
+        is_recurring: is_recurring || recurring_frequency !== 'none',
         recurring_day: recurring_day || null,
+        recurring_frequency: recurring_frequency || 'none',
         is_published: is_published !== false,
       })
       .select()
