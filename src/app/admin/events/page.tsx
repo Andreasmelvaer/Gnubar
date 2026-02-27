@@ -16,12 +16,24 @@ interface Event {
   time: string;
   is_recurring: boolean;
   recurring_day: string | null;
+  recurring_frequency: string;
   is_published: boolean;
   created_at: string;
 }
 
+const DAYS_OF_WEEK = [
+  { value: 'monday', label: 'Mandag' },
+  { value: 'tuesday', label: 'Tirsdag' },
+  { value: 'wednesday', label: 'Onsdag' },
+  { value: 'thursday', label: 'Torsdag' },
+  { value: 'friday', label: 'Fredag' },
+  { value: 'saturday', label: 'Lørdag' },
+  { value: 'sunday', label: 'Søndag' },
+];
+
 const EVENT_TYPES = [
   { value: 'konsert', label: 'Konsert' },
+  { value: 'musikk', label: 'Musikk' },
   { value: 'quiz', label: 'Quiz' },
   { value: 'dj', label: 'DJ' },
   { value: 'bingo', label: 'Music Bingo' },
@@ -39,6 +51,8 @@ const emptyForm = {
   event_type: 'konsert',
   date: '',
   time: '20:00',
+  recurring_frequency: 'none',
+  recurring_day: '',
   is_published: true,
 };
 
@@ -128,6 +142,8 @@ export default function AdminEvents() {
       event_type: event.event_type,
       date: event.date,
       time: event.time.substring(0, 5),
+      recurring_frequency: event.recurring_frequency || 'none',
+      recurring_day: event.recurring_day || '',
       is_published: event.is_published,
     });
     setShowForm(true);
@@ -143,6 +159,8 @@ export default function AdminEvents() {
       event_type: event.event_type,
       date: '',
       time: event.time.substring(0, 5),
+      recurring_frequency: event.recurring_frequency || 'none',
+      recurring_day: event.recurring_day || '',
       is_published: false,
     });
     setShowForm(true);
@@ -155,8 +173,9 @@ export default function AdminEvents() {
   }
 
   const today = new Date().toISOString().split('T')[0];
-  const upcomingEvents = events.filter(e => e.date >= today);
-  const pastEvents = events.filter(e => e.date < today);
+  const recurringEvents = events.filter(e => e.recurring_frequency && e.recurring_frequency !== 'none');
+  const upcomingEvents = events.filter(e => (!e.recurring_frequency || e.recurring_frequency === 'none') && e.date >= today);
+  const pastEvents = events.filter(e => (!e.recurring_frequency || e.recurring_frequency === 'none') && e.date < today);
 
   return (
     <div>
@@ -251,6 +270,37 @@ export default function AdminEvents() {
             </div>
           </div>
 
+          {/* Recurring options */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-1">Frekvens</label>
+              <select
+                value={form.recurring_frequency}
+                onChange={e => setForm({ ...form, recurring_frequency: e.target.value, recurring_day: e.target.value === 'none' ? '' : form.recurring_day })}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#3C4932] focus:outline-none"
+              >
+                <option value="none">Engangs</option>
+                <option value="weekly">Ukentlig</option>
+                <option value="monthly">Månedlig</option>
+              </select>
+            </div>
+            {form.recurring_frequency === 'weekly' && (
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-1">Ukedag</label>
+                <select
+                  value={form.recurring_day}
+                  onChange={e => setForm({ ...form, recurring_day: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-[#3C4932] focus:outline-none"
+                >
+                  <option value="">Velg ukedag</option>
+                  {DAYS_OF_WEEK.map(d => (
+                    <option key={d.value} value={d.value}>{d.label}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+          </div>
+
           <div className="flex items-center gap-4 mt-6">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
@@ -286,6 +336,27 @@ export default function AdminEvents() {
         <div className="text-center py-12 text-gray-500">Laster arrangementer...</div>
       ) : (
         <>
+          {/* Recurring */}
+          {recurringEvents.length > 0 && (
+            <div className="mb-8">
+              <h2 className="text-lg font-bold text-gray-700 mb-4">
+                Faste program ({recurringEvents.length})
+              </h2>
+              <div className="space-y-2">
+                {recurringEvents.map(event => (
+                  <EventRow
+                    key={event.id}
+                    event={event}
+                    onEdit={() => startEdit(event)}
+                    onDelete={() => handleDelete(event.id)}
+                    onTogglePublished={() => togglePublished(event)}
+                    onDuplicate={() => duplicateEvent(event)}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Upcoming */}
           <div className="mb-8">
             <h2 className="text-lg font-bold text-gray-700 mb-4">
@@ -358,6 +429,11 @@ function EventRow({ event, onEdit, onDelete, onTogglePublished, onDuplicate }: {
           <span className="text-sm font-bold text-gray-500">{dateStr}</span>
           <span className="text-sm text-gray-400">{event.time.substring(0, 5)}</span>
           <span className="text-xs bg-gray-100 px-2 py-0.5 rounded">{typeLabel}</span>
+          {event.recurring_frequency && event.recurring_frequency !== 'none' && (
+            <span className="text-xs bg-purple-100 text-purple-800 px-2 py-0.5 rounded">
+              {event.recurring_frequency === 'weekly' ? 'Ukentlig' : 'Månedlig'}
+            </span>
+          )}
           {!event.is_published && (
             <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">Kladd</span>
           )}

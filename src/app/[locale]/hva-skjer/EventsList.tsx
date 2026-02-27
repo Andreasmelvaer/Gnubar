@@ -17,6 +17,7 @@ const getBadgeColor = (type: string): string => {
   switch (type) {
     case 'quiz': return 'bg-gnu-gold';
     case 'konsert': return 'bg-gnu-red';
+    case 'musikk': return 'bg-gnu-red';
     case 'dj': return 'bg-gnu-olive';
     case 'bingo': return 'bg-gnu-gold';
     case 'vinyl': return 'bg-gnu-green';
@@ -24,6 +25,18 @@ const getBadgeColor = (type: string): string => {
     case 'jazz': return 'bg-gnu-red';
     default: return 'bg-gnu-green';
   }
+};
+
+const TYPE_LABELS: Record<string, Record<string, string>> = {
+  konsert: { no: 'Konsert', en: 'Concert' },
+  musikk: { no: 'Musikk', en: 'Music' },
+  quiz: { no: 'Quiz', en: 'Quiz' },
+  dj: { no: 'DJ', en: 'DJ' },
+  bingo: { no: 'Music Bingo', en: 'Music Bingo' },
+  vinyl: { no: 'Vinyl', en: 'Vinyl' },
+  soendagsskolen: { no: 'Søndagsskolen', en: 'Sunday School' },
+  jazz: { no: 'Jazz', en: 'Jazz' },
+  annet: { no: 'Annet', en: 'Other' },
 };
 
 const formatDate = (dateStr: string, locale: string): string => {
@@ -88,7 +101,7 @@ export function EventsList({ locale, noEventsText }: { locale: string; noEventsT
               </h3>
             </div>
             <span className={`gnu-badge px-3 py-1 font-bold text-sm uppercase tracking-wider ${getBadgeColor(event.event_type)}`}>
-              {event.event_type}
+              {TYPE_LABELS[event.event_type]?.[locale] || TYPE_LABELS[event.event_type]?.no || event.event_type}
             </span>
           </div>
           <p className="text-gnu-cream text-lg font-bold mb-2">{formatTime(event.time)}</p>
