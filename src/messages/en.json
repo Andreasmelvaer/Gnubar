@@ -186,6 +186,11 @@
     "contactHeading": "Contact Information",
     "barManager": "Bar Manager",
     "barManagerSubtitle": "Bar Manager & Booking",
+    "contactName": "Andrea",
+    "contactPhone": "51 56 73 00",
+    "contactEmail": "post@gnubar.no",
+    "contactAddress": "Nedre Strandgate 23, 4005 Stavanger",
+    "contactHours": "Mon–Thu/Sun: 16:00–01:00 | Fri–Sat: 16:00–02:30",
     "phone": "Phone",
     "address": "Address",
     "hours": "Opening Hours",
@@ -232,7 +237,18 @@
     "mondayToSunday": "Mon/Tue/Wed/Thu/Sun",
     "fridayToSaturday": "Fri/Sat",
     "address": "Nedre Strandgate 23, 4005 Stavanger",
+    "addressStreet": "Nedre Strandgate 23",
+    "addressCity": "4005 Stavanger",
+    "addressLandmark": "By the harbour, behind Cementen",
     "phone": "51 56 73 00",
     "instagram": "@gnu.bar"
+  },
+  "meta": {
+    "siteTitle": "Gnu Bar — Stavanger",
+    "siteDescription": "Gnu Bar — bar and concert venue in the heart of Stavanger. Quiz, live music, DJ, Music Bingo and more. Nedre Strandgate 23.",
+    "siteKeywords": "bar stavanger, pub stavanger, live music stavanger, quiz stavanger, nightlife stavanger, gnu bar, concert stavanger, things to do stavanger",
+    "homeTitle": "Gnu Bar — Bar and Concert Venue in Stavanger",
+    "homeDescription": "Gnu Bar — bar and concert venue in the heart of Stavanger. Quiz, live music, DJ, Music Bingo and more. Nedre Strandgate 23.",
+    "ogDescription": "Bar and concert venue in the heart of Stavanger. Quiz, live music, DJ and more."
   }
 }

@@ -186,6 +186,11 @@
     "contactHeading": "Kontaktinformasjon",
     "barManager": "Barsjef",
     "barManagerSubtitle": "Barsjef & Booking",
+    "contactName": "Andrea",
+    "contactPhone": "51 56 73 00",
+    "contactEmail": "post@gnubar.no",
+    "contactAddress": "Nedre Strandgate 23, 4005 Stavanger",
+    "contactHours": "Man–Tor/Søn: 16:00–01:00 | Fre–Lør: 16:00–02:30",
     "phone": "Telefon",
     "address": "Adresse",
     "hours": "Åpningstider",
@@ -232,7 +237,18 @@
     "mondayToSunday": "Man/Tir/Ons/Tor/Søn",
     "fridayToSaturday": "Fre/Lør",
     "address": "Nedre Strandgate 23, 4005 Stavanger",
+    "addressStreet": "Nedre Strandgate 23",
+    "addressCity": "4005 Stavanger",
+    "addressLandmark": "Ved Vågen, bak Cementen",
     "phone": "51 56 73 00",
     "instagram": "@gnu.bar"
+  },
+  "meta": {
+    "siteTitle": "Gnu Bar — Stavanger",
+    "siteDescription": "Gnu Bar — bar og konsertsted i hjertet av Stavanger. Quiz, live musikk, DJ, Music Bingo og mer. Nedre Strandgate 23.",
+    "siteKeywords": "bar stavanger, pub stavanger, live musikk stavanger, quiz stavanger, utested stavanger, gnu bar, konsert stavanger, nightlife stavanger",
+    "homeTitle": "Gnu Bar — Bar og konsertsted i Stavanger",
+    "homeDescription": "Gnu Bar — bar og konsertsted i hjertet av Stavanger. Quiz, live musikk, DJ, Music Bingo og mer. Nedre Strandgate 23.",
+    "ogDescription": "Bar og konsertsted i hjertet av Stavanger. Quiz, live musikk, DJ og mer."
   }
 }

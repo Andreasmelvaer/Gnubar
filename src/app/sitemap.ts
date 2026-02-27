@@ -5,91 +5,109 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
   return [
-    // Norwegian routes
+    // Homepage
     {
       url: baseUrl,
       lastModified,
       changeFrequency: 'daily',
       priority: 1.0,
+      alternates: {
+        languages: {
+          nb: baseUrl,
+          en: `${baseUrl}/en`,
+        },
+      },
     },
+    // What's On
     {
       url: `${baseUrl}/hva-skjer`,
       lastModified,
       changeFrequency: 'daily',
       priority: 0.9,
+      alternates: {
+        languages: {
+          nb: `${baseUrl}/hva-skjer`,
+          en: `${baseUrl}/en/whats-on`,
+        },
+      },
     },
+    // Gnu Sounds
     {
       url: `${baseUrl}/gnu-sounds`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.8,
+      alternates: {
+        languages: {
+          nb: `${baseUrl}/gnu-sounds`,
+          en: `${baseUrl}/en/gnu-sounds`,
+        },
+      },
     },
+    // Gnu Raua
     {
       url: `${baseUrl}/gnu-raua`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
+      alternates: {
+        languages: {
+          nb: `${baseUrl}/gnu-raua`,
+          en: `${baseUrl}/en/gnu-raua`,
+        },
+      },
     },
+    // Gnu Raua - Poetry
     {
       url: `${baseUrl}/gnu-raua/poesi`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
+      alternates: {
+        languages: {
+          nb: `${baseUrl}/gnu-raua/poesi`,
+          en: `${baseUrl}/en/gnu-raua/poetry`,
+        },
+      },
     },
+    // About
     {
       url: `${baseUrl}/om`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
+      alternates: {
+        languages: {
+          nb: `${baseUrl}/om`,
+          en: `${baseUrl}/en/about`,
+        },
+      },
     },
+    // History
+    {
+      url: `${baseUrl}/historie`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: {
+        languages: {
+          nb: `${baseUrl}/historie`,
+          en: `${baseUrl}/en/history`,
+        },
+      },
+    },
+    // Booking
     {
       url: `${baseUrl}/booking`,
       lastModified,
       changeFrequency: 'weekly',
       priority: 0.8,
-    },
-    // English routes
-    {
-      url: `${baseUrl}/en`,
-      lastModified,
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/en/whats-on`,
-      lastModified,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/en/gnu-sounds`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/en/gnu-raua`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/en/gnu-raua/poetry`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/en/about`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/en/booking`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.8,
+      alternates: {
+        languages: {
+          nb: `${baseUrl}/booking`,
+          en: `${baseUrl}/en/booking`,
+        },
+      },
     },
   ];
 }

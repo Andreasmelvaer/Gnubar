@@ -5,33 +5,43 @@ import { MapPin, Clock, Music, Calendar, BookOpen } from 'lucide-react';
 import { Link as I18nLink } from '@/i18n/navigation';
 import { generateHomePageSchema, SITE_URL } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Home",
-  description:
-    "Gnu Bar — bar og konsertsted i hjertet av Stavanger. Quiz, live musikk, DJ, Music Bingo og mer. Nedre Strandgate 23.",
-  openGraph: {
-    type: "website",
-    url: SITE_URL,
-    title: "Gnu Bar — Stavanger",
-    description:
-      "Bar og konsertsted i hjertet av Stavanger. Quiz, live musikk, DJ og mer.",
-    images: [
-      {
-        url: "https://gnubar.no/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Gnu Bar Stavanger",
-      },
-    ],
-  },
-  alternates: {
-    canonical: SITE_URL,
-    languages: {
-      "no-NO": SITE_URL,
-      "en": `${SITE_URL}/en`,
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+
+  const isNorwegian = locale === "no";
+  const localeUrl = isNorwegian ? SITE_URL : `${SITE_URL}/en`;
+
+  return {
+    title: t("homeTitle"),
+    description: t("homeDescription"),
+    openGraph: {
+      type: "website",
+      url: localeUrl,
+      title: t("homeTitle"),
+      description: t("ogDescription"),
+      images: [
+        {
+          url: `${SITE_URL}/images/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: "Gnu Bar Stavanger",
+        },
+      ],
     },
-  },
-};
+    alternates: {
+      canonical: localeUrl,
+      languages: {
+        "nb": SITE_URL,
+        "en": `${SITE_URL}/en`,
+      },
+    },
+  };
+}
 
 export default async function HomePage(
   { params }: { params: Promise<{ locale: string }> }
@@ -95,7 +105,7 @@ export default async function HomePage(
             <Clock size={18} />
             <span>{t('common.mondayToSunday')}: 16:00–00:00</span>
           </div>
-          <span className="hidden sm:inline font-bold">•</span>
+          <span className="hidden sm:inline font-bold">&bull;</span>
           <div className="font-bold uppercase text-sm tracking-wide">
             {t('common.fridayToSaturday')}: 15:00–02:00
           </div>
@@ -185,9 +195,9 @@ export default async function HomePage(
             <div className="flex items-start gap-3 mb-4">
               <MapPin size={24} className="text-gnu-red mt-1 shrink-0" />
               <div>
-                <p className="text-lg font-bold">Nedre Strandgate 23</p>
-                <p className="text-gnu-black/60">4005 Stavanger</p>
-                <p className="text-gnu-black/60 mt-1">Ved Vågen, bak Cementen</p>
+                <p className="text-lg font-bold">{t('common.addressStreet')}</p>
+                <p className="text-gnu-black/60">{t('common.addressCity')}</p>
+                <p className="text-gnu-black/60 mt-1">{t('common.addressLandmark')}</p>
               </div>
             </div>
             <a
