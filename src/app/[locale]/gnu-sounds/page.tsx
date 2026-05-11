@@ -35,6 +35,13 @@ interface VideoEntry {
 }
 
 const videoEntries: VideoEntry[] = [
+  { artist: 'Golden Boy - Chops', youtubeId: 'd4mjd3VjNI0' },
+  { artist: 'Blodsprengt', youtubeId: 'KQ-8MDRXd7o' },
+  { artist: 'Livsvegring', youtubeId: 'xBJehUU8Otk' },
+  { artist: 'Heddah', youtubeId: 'GwELbsxdXrg' },
+  { artist: 'Chops', youtubeId: 'XEjI4kHko6E' },
+  { artist: 'Sagite', youtubeId: 'OFqI0oc-81A' },
+  { artist: 'Vendt Jord', youtubeId: 'mxPOebf6ewM' },
   { artist: 'The Essential Ether', youtubeId: '2k2X8IF0j1Y' },
   { artist: 'Auforia', youtubeId: '2zB_5_8gzsY' },
   { artist: 'JollyChimp', youtubeId: 'cAXDGPJ4Eak' },
