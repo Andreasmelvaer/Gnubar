@@ -64,7 +64,7 @@ export async function sendBookingConfirmation(to: string, name: string) {
         <div style="font-family: sans-serif; max-width: 600px;">
           <h2 style="color: #3C4932;">Hei ${name}!</h2>
           <p>Takk for din bookingforespørsel. Vi har mottatt den og vil ta kontakt så snart vi kan.</p>
-          <p>Har du spørsmål i mellomtiden? Ring oss på <strong>51 56 73 00</strong>.</p>
+          <p>Har du spørsmål i mellomtiden? Ring oss på <strong>909 71 665</strong>.</p>
           <p style="margin-top: 24px;">Hilsen,<br/><strong>Gnu Bar</strong><br/>Nedre Strandgate 23, Stavanger</p>
         </div>
       `,

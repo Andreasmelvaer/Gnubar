@@ -8,7 +8,7 @@ export const SITE_NAME = 'Gnu Bar';
 export const BUSINESS_INFO = {
   name: 'Gnu Bar',
   address: 'Nedre Strandgate 23, 4005 Stavanger, Norway',
-  telephone: '+47 51 56 73 00',
+  telephone: '+47 90 97 16 65',
   latitude: 58.9699,
   longitude: 5.7331,
   instagram: 'https://instagram.com/gnu.bar',
