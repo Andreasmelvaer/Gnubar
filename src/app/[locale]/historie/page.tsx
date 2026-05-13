@@ -188,11 +188,6 @@ export default function Historie() {
                 Aftenbladet — Nå har Gnu en hel gnu
               </a>
             </li>
-            <li>
-              <a href="https://www.dagsavisen.no/nyheter/passer-ikke-inn-pa-puben/4245503" target="_blank" rel="noopener noreferrer" className="hover:text-gnu-green underline">
-                Dagsavisen — Passer ikke inn på puben
-              </a>
-            </li>
           </ul>
         </section>
 
