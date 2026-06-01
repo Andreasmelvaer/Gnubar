@@ -35,6 +35,9 @@ interface VideoEntry {
 }
 
 const videoEntries: VideoEntry[] = [
+  { artist: 'FKP Kvartett', youtubeId: 'ztn13PP7xwQ' },
+  { artist: 'Organ Donor', youtubeId: 'Nihx1Ktuybw' },
+  { artist: 'Autumn Leaves - The Eternal Ether', youtubeId: '0MukvGhShdU' },
   { artist: 'Golden Boy - Chops', youtubeId: 'd4mjd3VjNI0' },
   { artist: 'Blodsprengt', youtubeId: 'KQ-8MDRXd7o' },
   { artist: 'Livsvegring', youtubeId: 'xBJehUU8Otk' },
