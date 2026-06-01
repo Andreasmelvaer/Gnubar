@@ -37,7 +37,7 @@
         "date": "Monday",
         "title": "Master Monday",
         "time": "",
-        "desc": "Master Monday at Gnu"
+        "desc": "Bring your own vinyl to Gnu and we'll listen to the whole album from start to finish"
       },
       {
         "date": "Wednesday",
@@ -83,7 +83,7 @@
     "saturday": "Saturday",
     "sunday": "Sunday",
     "from": "from",
-    "masterMondayDesc": "Master Monday at Gnu",
+    "masterMondayDesc": "Bring your own vinyl to Gnu and we'll listen to the whole album from start to finish",
     "musicWednesday": "Music Wednesday",
     "musicWednesdayDesc": "Stavanger's young musicians meet up",
     "quizDesc": "Quiz ALMOST every Thursday! Prize for the winning team.",

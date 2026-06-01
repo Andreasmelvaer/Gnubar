@@ -37,7 +37,7 @@
         "date": "Mandag",
         "title": "Master Monday",
         "time": "",
-        "desc": "Master Monday på Gnu"
+        "desc": "Ta med egen vinyl til Gnu og vi hører hele albumet fra start til slutt"
       },
       {
         "date": "Onsdag",
@@ -83,7 +83,7 @@
     "saturday": "Lørdag",
     "sunday": "Søndag",
     "from": "fra",
-    "masterMondayDesc": "Master Monday på Gnu",
+    "masterMondayDesc": "Ta med egen vinyl til Gnu og vi hører hele albumet fra start til slutt",
     "musicWednesday": "Musikkonsdag",
     "musicWednesdayDesc": "Det unge musikkmiljøet i Stavanger samles",
     "quizDesc": "Quiz NESTEN hver torsdag! Premie til vinnerlaget.",
