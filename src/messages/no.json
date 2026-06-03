@@ -187,7 +187,7 @@
     "barManager": "Barsjef",
     "barManagerSubtitle": "Barsjef & Booking",
     "contactName": "Andrea",
-    "contactPhone": "909 71 665",
+    "contactPhone": "90971665",
     "contactEmail": "post@gnubar.no",
     "contactAddress": "Nedre Strandgate 23, 4005 Stavanger",
     "contactHours": "Man–Tor/Søn: 16:00–01:00 | Fre–Lør: 16:00–02:30",
@@ -207,7 +207,7 @@
     "successTitle": "Takk!",
     "successMessage": "Vi har mottatt forespørselen din og tar kontakt så snart vi kan.",
     "sendAnother": "Send en ny forespørsel",
-    "errorMessage": "Noe gikk galt. Prøv igjen, eller ring oss på 909 71 665.",
+    "errorMessage": "Noe gikk galt. Prøv igjen, eller ring oss på 90971665.",
     "newsletterOptIn": "Hold meg oppdatert om konserter og events på Gnu Bar",
     "eventTypeOptions": {
       "concert": "Konsert",
@@ -240,7 +240,7 @@
     "addressStreet": "Nedre Strandgate 23",
     "addressCity": "4005 Stavanger",
     "addressLandmark": "Ved Vågen, bak Cementen",
-    "phone": "909 71 665",
+    "phone": "90971665",
     "instagram": "@gnu.bar"
   },
   "meta": {
